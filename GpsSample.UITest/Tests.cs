@@ -28,28 +28,49 @@ namespace GpsSample.UITest
         [Test]
         public void KoreaGPS()
         {
-            app.Device.SetLocation(49.2463, -123.1162);
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
-            app.Screenshot("49.2463, -123.1162.");
-            Assert.IsTrue(results.Any());
+            double latDouble = 49.2463;
+            double longDouble = -123.1162;
+
+            app.Device.SetLocation(latDouble, longDouble);
+            AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] latitudeTest  = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
+            AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
+            app.Screenshot("Should be " + latDouble + ", " + longDouble);
+            Assert.IsTrue(message.Any());
+            Assert.IsTrue(latitudeTest.Any());
+            Assert.IsTrue(longitudeTest.Any());
         }
 
         [Test]
         public void CanadaGPS()
         {
-            app.Device.SetLocation(43.6529, -79.3849);
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
-            app.Screenshot("43.6529, -79.3849");
-            Assert.IsTrue(results.Any());
+            double latDouble = 43.6529;
+            double longDouble = -79.3849;
+
+            app.Device.SetLocation(latDouble, longDouble);
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
+            AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
+            app.Screenshot("Should be " + latDouble + ", " + longDouble);
+            Assert.IsTrue(message.Any());
+            Assert.IsTrue(latitudeTest.Any());
+            Assert.IsTrue(longitudeTest.Any());
         }
 
         [Test]
         public void UsaGPS()
         {
-            app.Device.SetLocation(37.7740, -122.4313);
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
-            app.Screenshot("37.7740, -122.4313");
-            Assert.IsTrue(results.Any());
+            double latDouble = 37.7740;
+            double longDouble = -122.4313;
+
+            app.Device.SetLocation(latDouble, longDouble);
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
+            AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
+            app.Screenshot("Should be " + latDouble + ", " + longDouble);
+            Assert.IsTrue(message.Any());
+            Assert.IsTrue(latitudeTest.Any());
+            Assert.IsTrue(longitudeTest.Any());
         }
 
         [Test]
