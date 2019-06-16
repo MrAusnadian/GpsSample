@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
@@ -32,6 +33,7 @@ namespace GpsSample.UITest
             double longDouble = -123.1162;
 
             app.Device.SetLocation(latDouble, longDouble);
+            Thread.Sleep(1000);
             AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
             AppResult[] latitudeTest  = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
@@ -48,6 +50,7 @@ namespace GpsSample.UITest
             double longDouble = -79.3849;
 
             app.Device.SetLocation(latDouble, longDouble);
+            Thread.Sleep(1000);
             AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
             AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
@@ -64,6 +67,7 @@ namespace GpsSample.UITest
             double longDouble = -122.4313;
 
             app.Device.SetLocation(latDouble, longDouble);
+            Thread.Sleep(1000);
             AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
             AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
