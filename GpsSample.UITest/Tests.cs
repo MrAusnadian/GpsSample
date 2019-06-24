@@ -34,7 +34,7 @@ namespace GpsSample.UITest
 
             app.Device.SetLocation(latDouble, longDouble);
             Thread.Sleep(1000);
-            AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"));
             AppResult[] latitudeTest  = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
             app.Screenshot("Should be " + latDouble + ", " + longDouble);
@@ -51,7 +51,7 @@ namespace GpsSample.UITest
 
             app.Device.SetLocation(latDouble, longDouble);
             Thread.Sleep(1000);
-            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"));
             AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
             app.Screenshot("Should be " + latDouble + ", " + longDouble);
@@ -68,7 +68,7 @@ namespace GpsSample.UITest
 
             app.Device.SetLocation(latDouble, longDouble);
             Thread.Sleep(1000);
-            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"));
             AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble));
             app.Screenshot("Should be " + latDouble + ", " + longDouble);
@@ -80,7 +80,7 @@ namespace GpsSample.UITest
         [Test]
         public void NoCustomGPS()
         {
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"));
             app.Screenshot("No custom GPS provided");
             Assert.IsTrue(results.Any());
         }

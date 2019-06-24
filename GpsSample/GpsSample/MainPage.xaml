@@ -10,22 +10,17 @@
         <!-- Place new controls here -->
         <Label
            x:Name="LabelTitle"           
-           Text="Welcome to Xamarin.Forms!" 
+           Text="Welcome to GPS Sample!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
         <Label
            x:Name="LabelLatitude"           
-           Text="Latitude: Unknown" 
+           Text="Loading..." 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
         <Label
            x:Name="LabelLongitude"           
-           Text="Longitude: Unknown" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        <Label
-           x:Name="LabelAltitude"           
-           Text="Altitude: Unknown" 
+           Text="" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
     </StackLayout>

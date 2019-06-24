@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -22,34 +23,40 @@ namespace GpsSample
 
         public async void GetGpsLocation()
         {
-            try
+            int i = 0;
+            do
             {
-                var request = new GeolocationRequest(GeolocationAccuracy.Medium);
-                Location location = await Geolocation.GetLocationAsync(request);
-
-                if (location != null)
+                try
                 {
-                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                    LabelLatitude.Text = $"Latitude: {location.Latitude}";
-                    LabelLongitude.Text = $"Longitude: {location.Longitude}";
-                    LabelAltitude.Text = $"Altitude: {location.Altitude}";
+                    var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+                    var location = await Geolocation.GetLocationAsync(request);
+                    if (location != null)
+                    {
+                        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                        LabelLatitude.Text = $"Latitude: {location.Latitude}";
+                        LabelLongitude.Text = $"Longitude: {location.Longitude}";
+                    }
                 }
-            }
-            catch (FeatureNotSupportedException fnsEx)
+                catch (FeatureNotSupportedException fnsEx)
+                {
+                    await DisplayAlert("Error1", fnsEx.ToString(), "ok");
+                }
+                catch (PermissionException pEx)
+                {
+                    await DisplayAlert("Error2", pEx.ToString(), "ok");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error3", ex.ToString(), "ok");
+                }
+                Thread.Sleep(1000);
+                i++;
+            } while (LabelLatitude.Text == "Loading..." && i < 5);
+
+            if (i >= 5)
             {
-                // Handle not supported on device exception
-            }
-            catch (FeatureNotEnabledException fneEx)
-            {
-                // Handle not enabled on device exception
-            }
-            catch (PermissionException pEx)
-            {
-                // Handle permission exception
-            }
-            catch (Exception ex)
-            {
-                // Unable to get location
+                LabelLatitude.Text = "Failed!";
+                LabelLongitude.Text = "An unknown error occured.";
             }
         }
     }
