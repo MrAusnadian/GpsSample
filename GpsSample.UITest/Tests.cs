@@ -31,11 +31,11 @@ namespace GpsSample.UITest
         {
             double latDouble = 49.2463;
             double longDouble = -123.1162;
-
             app.Device.SetLocation(latDouble, longDouble);
-            Thread.Sleep(1000);
-            AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"), "timed out", TimeSpan.FromMinutes(1));
-            AppResult[] latitudeTest  = app.WaitForElement(c => c.Marked("Latitude: " + latDouble), "timed out", TimeSpan.FromMinutes(1));
+            AppInitializer.StartApp(platform);
+
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"), "timed out", TimeSpan.FromMinutes(1));
+            AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble), "timed out", TimeSpan.FromMinutes(1));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble), "timed out", TimeSpan.FromMinutes(1));
             app.Screenshot("Should be " + latDouble + ", " + longDouble);
             Assert.IsTrue(message.Any());
@@ -48,11 +48,11 @@ namespace GpsSample.UITest
         {
             double latDouble = 43.6529;
             double longDouble = -79.3849;
-
             app.Device.SetLocation(latDouble, longDouble);
-            Thread.Sleep(1000);
-            AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"), "timed out", TimeSpan.FromMinutes(1));
-            AppResult[] latitudeTest  = app.WaitForElement(c => c.Marked("Latitude: " + latDouble), "timed out", TimeSpan.FromMinutes(1));
+            AppInitializer.StartApp(platform);
+
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"), "timed out", TimeSpan.FromMinutes(1));
+            AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble), "timed out", TimeSpan.FromMinutes(1));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble), "timed out", TimeSpan.FromMinutes(1));
             app.Screenshot("Should be " + latDouble + ", " + longDouble);
             Assert.IsTrue(message.Any());
@@ -65,11 +65,11 @@ namespace GpsSample.UITest
         {
             double latDouble = 37.7740;
             double longDouble = -122.4313;
-
             app.Device.SetLocation(latDouble, longDouble);
-            Thread.Sleep(1000);
-            AppResult[] message       = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"), "timed out", TimeSpan.FromMinutes(1));
-            AppResult[] latitudeTest  = app.WaitForElement(c => c.Marked("Latitude: " + latDouble), "timed out", TimeSpan.FromMinutes(1));
+            AppInitializer.StartApp(platform);
+
+            AppResult[] message = app.WaitForElement(c => c.Marked("Welcome to GPS Sample!"), "timed out", TimeSpan.FromMinutes(1));
+            AppResult[] latitudeTest = app.WaitForElement(c => c.Marked("Latitude: " + latDouble), "timed out", TimeSpan.FromMinutes(1));
             AppResult[] longitudeTest = app.WaitForElement(c => c.Marked("Longitude: " + longDouble), "timed out", TimeSpan.FromMinutes(1));
             app.Screenshot("Should be " + latDouble + ", " + longDouble);
             Assert.IsTrue(message.Any());

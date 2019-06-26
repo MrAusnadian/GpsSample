@@ -146,7 +146,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\GpsSample\GpsSample.csproj">
-      <Project>{D4FB05D0-0FC4-4A94-86F4-96401034A34E}</Project>
+      <Project>{713D2901-49C4-4947-8626-904E0250C1D7}</Project>
       <Name>GpsSample</Name>
     </ProjectReference>
   </ItemGroup>
