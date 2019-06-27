@@ -10,7 +10,7 @@ namespace GpsSample.UITest
         {
             if (platform == Platform.Android)
             {
-                return ConfigureApp.Android.InstalledApp("com.gluwa.GpsSample").EnableLocalScreenshots().StartApp();
+                return ConfigureApp.Android.InstalledApp("com.gluwa.GpsSample").StartApp();
             }
             Environment.SetEnvironmentVariable("UITEST_FORCE_IOS_SIM_RESTART", "1");
             return ConfigureApp.iOS
